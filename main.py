@@ -3,12 +3,12 @@ import sys
 import random
 
 class Student:
-    def __init__(myStudent, studID):#, rList, paired, pProject, currRank):
+    def __init__(myStudent, studID, rList, paired, pProject, currRank):#, rList, paired, pProject, currRank):
         myStudent.studID = studID
-#        myStudent.rList = rList
-#        myStudent.paired = paired
-#        myStudent.pProject = pProject
-#        myStudent.currRank = currRank
+        myStudent.rList = rList
+        myStudent.paired = paired
+        myStudent.pProject = pProject
+        myStudent.currRank = currRank
 
 #class Project:
 #   def __init__(myProject, projNum, pList, numMems, maxSize, memList):
@@ -18,17 +18,28 @@ class Student:
 #        myProject.maxSize = maxSize
 
 
-def genStudents():
+# generate student list with all parameters
+def genStudents(numStudents, numProjects):
     studList = []
-    for i in range(0,20):
-        studList.append(Student(i+1)) 
+    for i in range(0,numStudents):
+        rList = genRankedlist(numProjects);
+        studList.append(Student(i+1, rList, 0, None, None))
 
+# generate ranked list for students
+def checkNum(num, projList):
+    flag = 0
+    for i in range (0,len(projList)):
+        if(projList[i] == num):
+            flag = 1
+    return flag
 
-def genRankedlist():
-    for i in range(1,6):
-        print random.randint(1,5)
-        
-    
+def genRankedlist(numProjects):
+    projList = []
+    while(len(projList) < numProjects):
+        newNum = random.randint(1,5)
+        if(checkNum(newNum, projList) == 0):
+            projList.append(newNum);
+    return projList
 
-genStudents()
-genRankedlist()
+genStudents(20, 5)
+
