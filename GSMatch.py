@@ -24,7 +24,6 @@ def matchProj (studList, projList):
                 studList.append(lastStud)
             else:
                 studList.append(currentStud)
-return
 
 
 
