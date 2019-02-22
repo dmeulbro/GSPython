@@ -17,13 +17,13 @@ class Student:
 #        myProject.numMems =numMems
 #        myProject.maxSize = maxSize
 
-
 # generate student list with all parameters
 def genStudents(numStudents, numProjects):
     studList = []
     for i in range(0,numStudents):
         rList = genRankedlist(numProjects);
         studList.append(Student(i+1, rList, 0, None, None))
+    printStudents(studList)
 
 # generate ranked list for students
 def checkNum(num, projList):
@@ -41,5 +41,17 @@ def genRankedlist(numProjects):
             projList.append(newNum);
     return projList
 
+#test functions
+def printStudents(studList):
+    for i in range(0,len(studList)):
+        print studList[i].studID
+        print studList[i].rList
+        print studList[i].paired
+        print studList[i].pProject
+        print studList[i].currRank
+
+
+
+#Test function calls
 genStudents(20, 5)
 
