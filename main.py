@@ -10,12 +10,21 @@ class Student:
         myStudent.pProject = pProject
         myStudent.currRank = currRank
 
-#class Project:
-#   def __init__(myProject, projNum, pList, numMems, maxSize, memList):
-#        myProject.projNum = projNum
-#        myProject.pList = array.array('i')
-#        myProject.numMems =numMems
-#        myProject.maxSize = maxSize
+class Project:
+   def __init__(myProject, projNum, pList, numMems, maxSize, memList):
+        myProject.projNum = projNum
+        myProject.pList = pList
+        myProject.numMems =numMems
+        myProject.maxSize = maxSize
+        myProject.memList = memList
+
+# generate project list with all parameters
+def genProjects(numStudents, numProjects):
+    projList = []
+    for i in range(0,numProjects):
+        pList = genRankedlist(numProjects)
+        projList.append(Project(i+1, pList, None, (int(numStudents)/int(numProjects)), None))
+    printProjects(projList)
 
 # generate student list with all parameters
 def genStudents(numStudents, numProjects):
@@ -23,7 +32,7 @@ def genStudents(numStudents, numProjects):
     for i in range(0,numStudents):
         rList = genRankedlist(numProjects);
         studList.append(Student(i+1, rList, 0, None, None))
-    printStudents(studList)
+#    printStudents(studList)
 
 # generate ranked list for students
 def checkNum(num, projList):
@@ -36,7 +45,7 @@ def checkNum(num, projList):
 def genRankedlist(numProjects):
     projList = []
     while(len(projList) < numProjects):
-        newNum = random.randint(1,5)
+        newNum = random.randint(1,numProjects)
         if(checkNum(newNum, projList) == 0):
             projList.append(newNum);
     return projList
@@ -49,9 +58,20 @@ def printStudents(studList):
         print studList[i].paired
         print studList[i].pProject
         print studList[i].currRank
+        print "\n"
 
+
+def printProjects(projList):
+    for i in range(0,len(projList)):
+        print projList[i].projNum
+        print projList[i].pList
+        print projList[i].numMems
+        print projList[i].maxSize
+        print projList[i].memList
+        print "\n"
 
 
 #Test function calls
-genStudents(20, 5)
+#genStudents(50, 10)
+#genProjects(50, 10)
 
