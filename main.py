@@ -1,6 +1,12 @@
+import classDecs
+import GSMatch
 
 def main():
-    genProjects(50,10)
+    projList = classDecs.genProjects(50,10)
+    studList = classDecs.genStudents(50,10)
+
+    GSMatch.matchProj(studList, projList)
+
 
 
 

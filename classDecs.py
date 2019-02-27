@@ -3,36 +3,36 @@ import sys
 import random
 
 class Student:
-    def __init__(myStudent, studID, rList, paired, pProject, currRank):#, rList, paired, pProject, currRank):
-        myStudent.studID = studID
-        myStudent.rList = rList
-        myStudent.paired = paired
-        myStudent.pProject = pProject
-        myStudent.currRank = currRank
+    def __init__(myStudent, studID, rList, paired, pProject, currRank):
+        myStudent.studID = studID       # student ID
+        myStudent.rList = rList         # ranked list
+        myStudent.paired = paired       # paired (TRUE OR FALSE)
+        myStudent.pProject = pProject   # paired project number
+        myStudent.currRank = currRank   # current rank in placed proj
 
 class Project:
    def __init__(myProject, projNum, pList, numMems, maxSize, memList):
-        myProject.projNum = projNum
-        myProject.pList = pList
-        myProject.numMems =numMems
-        myProject.maxSize = maxSize
-        myProject.memList = memList
+        myProject.projNum = projNum     # project ID
+        myProject.pList = pList         # preference list of studs
+        myProject.numMems =numMems      # number of current mems
+        myProject.maxSize = maxSize     # self-explanatory
+        myProject.memList = memList     # List of members
 
 # generate project list with all parameters
 def genProjects(numStudents, numProjects):
     projList = []
     for i in range(0,numProjects):
-        pList = genRankedlist(numProjects)
+        pList = genRankedlist(numStudents)
         projList.append(Project(i+1, pList, None, (int(numStudents)/int(numProjects)), None))
-    printProjects(projList)
+    return projList
 
 # generate student list with all parameters
 def genStudents(numStudents, numProjects):
     studList = []
     for i in range(0,numStudents):
         rList = genRankedlist(numProjects);
-        studList.append(Student(i+1, rList, 0, None, None))
-#    printStudents(studList)
+        studList.append(Student(i+1, rList, False, None, None))
+    return studList
 
 # generate ranked list for students
 def checkNum(num, projList):
