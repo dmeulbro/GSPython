@@ -1,6 +1,7 @@
 import array
 import sys
 import random
+from math import ceil
 
 class Student:
     def __init__(myStudent, studID, rList, paired, pProject, currRank):
@@ -23,7 +24,7 @@ def genProjects(numStudents, numProjects):
     projList = []
     for i in range(0,numProjects):
         pList = genRankedlist(numStudents)
-        projList.append(Project(i+1, pList, None, (int(numStudents)/int(numProjects)), None))
+        projList.append(Project(i+1, pList, int(0), ceil(float(numStudents)/float(numProjects)), None))
     return projList
 
 # generate student list with all parameters
