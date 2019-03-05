@@ -2,8 +2,8 @@ import classDecs
 import GSMatch
 
 def main():
-    projList = classDecs.genProjects(60,11)
-    studList = classDecs.genStudents(60,11)
+    projList = classDecs.genProjects(60,10)
+    studList = classDecs.genStudents(60,10)
 
     for i in range(len(studList)):
         print str(studList[i].studID) + ":"
