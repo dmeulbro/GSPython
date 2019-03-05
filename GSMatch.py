@@ -4,9 +4,11 @@ import sys
 
 def matchProj (studList, projList):
     if(len(projList) == 0):
-        return "ERROR: NO PROJECTS"
+        print "ERROR: NO PROJECTS"
+        return
     if(len(studList) == 0):
-        return "ERROR: NO STUDENTS"
+        print "ERROR: NO STUDENTS"
+        return 
     for i in range(0,len(studList)):
         studList[i].paired = False
         studList[i].currRank = None

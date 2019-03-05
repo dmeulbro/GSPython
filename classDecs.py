@@ -2,6 +2,7 @@ import array
 import sys
 import random
 from math import ceil
+from math import floor
 
 class Student:
     def __init__(myStudent, studID, rList, paired, pProject, currRank):
@@ -12,10 +13,11 @@ class Student:
         myStudent.currRank = currRank   # current rank in placed proj
 
 class Project:
-   def __init__(myProject, projNum, pList, numMems, maxSize, memList):
+   def __init__(myProject, projNum, pList, numMems, minSize, maxSize, memList):
         myProject.projNum = projNum     # project ID
         myProject.pList = pList         # preference list of studs
-        myProject.numMems =numMems      # number of current mems
+        myProject.numMems = numMems     # number of current mems
+        myProject.minSize = minSize     # minimum team-size
         myProject.maxSize = maxSize     # self-explanatory
         myProject.memList = memList     # List of members
 
@@ -24,7 +26,7 @@ def genProjects(numStudents, numProjects):
     projList = []
     for i in range(0,numProjects):
         pList = genRankedlist(numStudents)
-        projList.append(Project(i+1, pList, int(0), ceil(float(numStudents)/float(numProjects)), None))
+        projList.append(Project(i+1, pList, int(0), floor(float(numStudents)/float(numProjects) - 1))ceil(float(numStudents)/float(numProjects)), None))
     return projList
 
 # generate student list with all parameters
