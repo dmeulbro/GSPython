@@ -9,6 +9,7 @@ def matchProj (studList, projList):
     if(len(studList) == 0):
         print "ERROR: NO STUDENTS"
         return 
+
     for i in range(0,len(studList)):
         studList[i].paired = False
         studList[i].currRank = None
@@ -24,6 +25,7 @@ def matchProj (studList, projList):
             topProj = currStud.rList.pop(0) - 1
             currStud.currRank = projList[topProj].pList.index(currStud.studID)
             if(projList[topProj].numMems != projList[topProj].maxSize):
+                #assign to project
                 projList[topProj].numMems += 1
                 currStud.paired = True
                 currStud.pProject = topProj + 1
@@ -36,9 +38,11 @@ def matchProj (studList, projList):
                     currStud.currRank = 0
                 else:
                     #got matched
+                    projList[topProj].numMems += 1
                     currStud.paired = True
                     currStud.pProject = topProj + 1
                     projList[topProj].memList.append(currStud)
+                    
 
                     #unmatched
                     lowestStud.paired = False
@@ -46,12 +50,12 @@ def matchProj (studList, projList):
                     lowestStud.pProject = None
                     studList.append(lowestStud)
                     break
-
     return projList
 
 def findLowest(proj):
-    lowestRank = 50000;
-    rankIndex = None;
+    lowestRank = 50000
+    rankIndex = None
+    proj.numMems -= 1
     for i in range(len(proj.memList)):
         if(proj.memList[i].currRank < lowestRank):
             rankIndex = int(i);

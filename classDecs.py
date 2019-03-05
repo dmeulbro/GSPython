@@ -26,9 +26,8 @@ def genProjects(numStudents, numProjects):
     projList = []
     for i in range(0,numProjects):
         pList = genRankedlist(numStudents)
-        projList.append(Project(i+1, pList, int(0), floor(float(numStudents)/float(numProjects) - 1))ceil(float(numStudents)/float(numProjects)), None))
+        projList.append(Project(i+1, pList, int(0), floor(float(numStudents)/float(numProjects)-1), ceil(float(numStudents)/float(numProjects)), None))
     return projList
-
 # generate student list with all parameters
 def genStudents(numStudents, numProjects):
     studList = []
