@@ -1,8 +1,10 @@
 import random
 import array
 import sys
+from math import ceil
 
-def matchProj (studList, projList):
+def matchProj (studList, projList, max_size):
+    extras = ceil(len(studList) % len(projList));
     if(len(projList) == 0):
         print "ERROR: NO PROJECTS"
         return
@@ -24,7 +26,7 @@ def matchProj (studList, projList):
         while(len(currStud.rList) != 0):
             topProj = currStud.rList.pop(0) - 1                                 #get top project 
             currStud.currRank = projList[topProj].pList.index(currStud.studID)  #get students rank in the project
-            if(projList[topProj].numMems != projList[topProj].maxSize):         #project not full
+            if(projList[topProj].numMems != max_size or len(studList) < extras):#projList[topProj].maxSize):         #project not full
                 #assign to project
                 projList[topProj].numMems += 1
                 addStud(projList[topProj],currStud,topProj)
@@ -41,6 +43,7 @@ def matchProj (studList, projList):
                     #unmatched
                     unMatch(studList, lowestStud)
                     break
+     
     return projList
 
 def addStud(proj, currStud, topProj):
