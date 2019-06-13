@@ -52,25 +52,25 @@ def genRankedlist(numProjects):
             projList.append(newNum);
     return projList
 
-#test functions
-def printStudents(studList):
-    for i in range(0,len(studList)):
-        print studList[i].studID
-        print studList[i].rList
-        print studList[i].paired
-        print studList[i].pProject
-        print studList[i].currRank
-        print "\n"
-
-
-def printProjects(projList):
-    for i in range(0,len(projList)):
-        print projList[i].projNum
-        print projList[i].pList
-        print projList[i].numMems
-        print projList[i].maxSize
-        print projList[i].memList
-        print "\n"
+##test functions
+#def printStudents(studList):
+#    for i in range(0,len(studList)):
+#        print studList[i].studID
+#        print studList[i].rList
+#        print studList[i].paired
+#        print studList[i].pProject
+#        print studList[i].currRank
+#        print "\n"
+#
+#
+#def printProjects(projList):
+#    for i in range(0,len(projList)):
+#        print projList[i].projNum
+#        print projList[i].pList
+#        print projList[i].numMems
+#        print projList[i].maxSize
+#        print projList[i].memList
+#        print "\n"
 
 
 #Test function calls

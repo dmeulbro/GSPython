@@ -6,10 +6,10 @@ from math import ceil
 def matchProj (studList, projList, max_size):
     extras = ceil(len(studList) % len(projList));
     if(len(projList) == 0):
-        print "ERROR: NO PROJECTS"
+        print( "ERROR: NO PROJECTS")
         return
     if(len(studList) == 0):
-        print "ERROR: NO STUDENTS"
+        print( "ERROR: NO STUDENTS")
         return 
 
     for i in range(0,len(studList)):

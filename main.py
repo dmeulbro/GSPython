@@ -4,35 +4,70 @@ import analysis
 import copy
 import csv
 import math
+import random
 
 def main():
-#    j = 0
+    j = 0
     countList   = []
     percList    = []
+    studList_ref = [None] * 10
+    projList_ref = [None] * 10
 #    while j < 1000:
-    projList    = classDecs.genProjects(62,10)
-    studList    = classDecs.genStudents(62,10)
-#    studListCP  = copy.deepcopy(studList)
+    projList    = classDecs.genProjects(50,10)
+    studList    = classDecs.genStudents(50,10)
+    while j < 2:
+        studList_ref[j] = studList.copy()
+        projList_ref[j] = projList.copy()
+#    print str(studList_ref
 
-    for i in range(len(studList)):
-        print str(studList[i].studID) + ":"
-        print studList[i].rList
-#        print studListCP[i].rList
+    
+#    while j< 10:
+#        studList_ref[j] = copy.deepcopy(studList);
+#        projList_ref[j] = copy.deepcopy(projList);
 
-    max_size = math.floor(62/10)
-    print max_size
-
-    projList = GSMatch.matchProj(studList, projList, max_size)
-
-
-    for i in range(len(projList)):
-        proj = i+1
-        print "\n"
-        print proj
-        print "=-=-=-=-=-=-=-=-="
-        for j in range(len(projList[i].memList)):
-            print projList[i].memList[j].studID
-        print "=-=-=-=-=-=-=-=-="
+##    for i in range(len(studList)):
+#        print str(studList[i].studID) + ":"
+#        print studList[i].rList
+#        print str(studListCpy[i].studID) + ":"
+#        print studListCpy[i].rList 
+#        print "\n"
+#
+#    max_size = math.floor(50/10)
+#    print max_size
+#
+#    j = 0
+#    projList_1 = GSMatch.matchProj(studList, projList, max_size)
+#    projList_2 = GSMatch.matchProj(studListCpy, projListCpy, max_size)
+#
+##    while j < 10:
+##        projList_ref[j] = GSMatch.matchProj(studList_ref[j], projList_ref[j], max_size)
+##
+##
+#    for i in range(len(projList_1)):
+#        proj = i+1
+#        # proj 1
+#        print "\n"
+#        print proj
+#        print "=-=-=-=-=-=-=-=-="
+#        for j in range(len(projList_1[i].memList)):
+#           print projList_1[i].memList[j].studID
+#        print "=-=-=-=-=-=-=-=-="
+#        # proj 2
+#        print "\n"
+#        print proj
+#        print "=-=-=-=-=-=-=-=-="
+#        for j in range(len(projList_2[i].memList)):
+#           print projList_2[i].memList[j].studID
+#        print "=-=-=-=-=-=-=-=-="
+#
+#for i in range(len(projList_2)):
+#        proj = i+1
+#        print "\n"
+#        print proj
+#        print "=-=-=-=-=-=-=-=-="
+#        for j in range(len(projList_1[i].memList)):
+#           print projList_2[i].memList[j].studID
+#        print "=-=-=-=-=-=-=-=-="
 
         
 #    countList.append(analysis.numAnalysis(studListCP, projList))
